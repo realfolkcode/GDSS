@@ -76,10 +76,7 @@ def load_ema_from_ckpt(model, ema_state_dict, decay=0.999):
 
 
 def load_data(config, get_graph_list=False):
-    if config.data.data in ['QM9', 'ZINC250k']:
-        from utils.data_loader_mol import dataloader
-        return dataloader(config, get_graph_list)
-    else:
+    if config.data.data in ['community_small', 'ego_small', 'ENZYMES', 'grid']:
         from utils.data_loader import dataloader
         return dataloader(config, get_graph_list)
 
